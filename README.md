@@ -1,1 +1,1 @@
-# timekick-ios
+# TimeKick-iOS
