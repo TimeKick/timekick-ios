@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  What Time Is It?
+
+  Created by Beyer, Paul on 3/22/15.
+  Copyright (c) 2015 What Time Is It?. All rights reserved.
+*/
+
+"RUN_MODE_TIME"="Time";
+"RUN_MODE_COUNTDOWN"="Countdown";
+"RUN_MODE_ALARM"="Target";
+
+"ACTION_SHEET_TITLE"="Tell Me Every...";
+
+"START_BUTTON"="Tell Me";
+"STOP_BUTTON"="Stop";
+
+"1_MINUTE"="1 Minute";
+"5_MINUTES"="5 Minutes";
+"10_MINUTES"="10 Minutes";
+"CUSTOM_INTERVAL"="Custom Interval";
+
+"1_MINUTE_SPEECH"="Minute";
+"5_MINUTES_SPEECH"="5 Minutes";
+"10_MINUTES_SPEECH"="10 Minutes";
+
+"TIME_UP_UI"="Time Up";
+"NEXT_REMINDER"="Next Reminder At: %@";
+"REMINDER_EVERY"="Reminder Every %@";
+
+"TIME_SELECTION_TITLE_COUNTDOWN"="Set Timer Duration";
+"TIME_SELECTION_TITLE_TARGET"="Set Target Date/Time";
+"TIME_SELECTION_TITLE_INTERVAL"="Select Custom Interval";
+
+//Speech
+"TARGET_START"="%@ target";
+"REMAINING_REMINDER"="%@ left";
+"ELAPSED_REMINDER"="%@";
+"TIME_REMINDER"="%@ O'Clock";
+"TIME_UP"="Your Time Is Up";
+"NOW_REMINDING"="Now Reminding You Every %@";
+"APP_TERMINATE"="This application will terminate now. Please relaunch to continue to receive timer feedback.";
