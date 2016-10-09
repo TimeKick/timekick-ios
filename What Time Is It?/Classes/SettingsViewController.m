@@ -108,7 +108,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 4;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -194,13 +194,8 @@
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
         cell.textLabel.textColor = [UIColor darkPurpleTextColor];
         cell.textLabel.font = [UIFont helveticaNeueRegularWithSize:17.0f];
-        cell.textLabel.text = @"Load Favorite Setting";
+        cell.textLabel.text = @"Referral Source";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        UIImageView *pin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin"]];
-        [cell.contentView addSubview:pin];
-        pin.frame = CGRectMake(cell.frame.size.width - 10 - pin.frame.size.width, 0, pin.frame.size.width, pin.frame.size.height);
-        pin.center = CGPointMake(pin.center.x, 25.5);
         
         return cell;
     }
@@ -236,12 +231,8 @@
         [FBSDKAppEvents logEvent:@"leaveFeedback" parameters:@{@"from":@"Settings"}];
         
     } else if (indexPath.row == 4) {
-        if ([[AppSettings sharedSettings] savedFavoriteReminderInterval] > 0) {
-            [self.tabBarController setSelectedIndex:[[AppSettings sharedSettings] savedFavoriteRunMode]];
-        } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Favorite" message:@"This retrieves your favorites. Please save a favorite scenario first." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-            [alertView show];
-        }
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.timekickap.com/referral-source/"]];
+        [FBSDKAppEvents logEvent:@"referralSource" parameters:@{@"from":@"Settings"}];
     }
 }
 
