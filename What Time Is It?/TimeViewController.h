@@ -71,6 +71,7 @@
 @property (strong, nonatomic) UIView *overlayView;
 @property (strong, nonatomic) NSString *lastSpeechString;
 
+- (void)start:(BOOL)alreadyConfigured;
 - (void)start;
 - (void)startFinalCountdown;
 - (IBAction)startStopButtonPushed:(UIButton *)sender;

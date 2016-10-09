@@ -92,12 +92,14 @@
     }
 }
 
-- (void)start {
+- (void)start:(BOOL)alreadyConfigured {
     self.shareButton.hidden = NO;
     [self.startStopButton setImage:[UIImage imageNamed:@"btn_off"] forState:UIControlStateNormal];
 
     self.dateTimePicker.alpha = 0.0f;
-    self.referenceDate = self.dateTimePicker.date;
+    if (!alreadyConfigured) {
+        self.referenceDate = self.dateTimePicker.date;
+    }
     
     self.audioSession = [AVAudioSession sharedInstance];
     [self.audioSession setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionDuckOthers error:nil];

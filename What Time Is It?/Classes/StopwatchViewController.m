@@ -34,7 +34,7 @@
     //}
 }
 
-- (void)start {
+- (void)start:(BOOL)alreadyConfigured {
     self.shareButton.hidden = NO;
     self.referenceDate = [NSDate date];
 

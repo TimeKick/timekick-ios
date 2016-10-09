@@ -78,14 +78,16 @@
     }
 }
 
-- (void)start {
+- (void)start:(BOOL)alreadyConfigured {
     self.shareButton.hidden = NO;
     [self.startStopButton setImage:[UIImage imageNamed:@"btn_off"] forState:UIControlStateNormal];
 
     self.dateTimePicker.alpha = 0.0f;
     
-    self.timerDuration = self.dateTimePicker.countDownDuration;
-    //self.reminderDuration = interval;
+    if (!alreadyConfigured) {
+        self.timerDuration = self.dateTimePicker.countDownDuration;
+        self.referenceDate = [[NSDate date] dateByAddingTimeInterval:self.timerDuration];
+    }
     
     self.audioSession = [AVAudioSession sharedInstance];
     [self.audioSession setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionDuckOthers error:nil];
@@ -106,8 +108,6 @@
     [self.intervalTimer invalidate];
     self.intervalTimer = [NSTimer scheduledTimerWithTimeInterval:self.reminderDuration target:self selector:@selector(updateUser) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.intervalTimer forMode:UITrackingRunLoopMode];
-    
-    self.referenceDate = [[NSDate date] dateByAddingTimeInterval:self.timerDuration];
     
     [[AppSettings sharedSettings] setIsAlreadyRunning:YES];
     self.tabBarController.selectedViewController.tabBarItem.badgeValue = @"!";

@@ -23,7 +23,7 @@
     self.reminderDurationString = [self hmsStringFromDuration:duration];
     self.reminderDurationSpeech = [self hmsStringFromDuration:duration];
 
-    [self start];
+    [self start:YES];
 }
 
 - (void)viewDidLoad {
@@ -226,6 +226,10 @@
 }
 
 - (void)start {
+    [self start:NO];
+}
+
+- (void)start:(BOOL)alreadyConfigured {
     self.shareButton.hidden = NO;
     [self.startStopButton setImage:[UIImage imageNamed:@"btn_off"] forState:UIControlStateNormal];
     
