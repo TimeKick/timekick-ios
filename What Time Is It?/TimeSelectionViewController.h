@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, TimeSelectionMode) {
 - (void)timerSelectedWithDuration:(NSTimeInterval)duration andReminderInterval:(NSTimeInterval)interval timerDate:(NSDate *)timerDate selectionMode:(TimeSelectionMode)selectionMode;
 @end
 
-@interface TimeSelectionViewController : UIViewController
+@interface TimeSelectionViewController : UIViewController <UIPickerViewDelegate>
 
 @property NSInteger hours;
 @property NSInteger mins;

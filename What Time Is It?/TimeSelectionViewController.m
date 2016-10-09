@@ -28,6 +28,8 @@
     UILabel *secsLabel = [[UILabel alloc] initWithFrame:CGRectMake(42 + ((self.view.frame.size.width / 3) * 2), self.dateTimerPickerView.frame.size.height / 2 - 15, 75, 30)];
     secsLabel.text = @"sec";
     [self.dateTimerPickerView addSubview:secsLabel];
+    
+    self.dateTimerPickerView.delegate = self;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -69,7 +71,7 @@
 #pragma mark UIPickerViewDelegate
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
@@ -105,7 +107,10 @@
 }
 
 -(NSInteger)getPickerTime {
-    return (self.hours * 60 * 60 + self.mins * 60 + self.secs);
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:self.dateTimePicker.date];
+    
+    return (components.hour * 60 * 60 + components.minute * 60);
 }
 
 @end
