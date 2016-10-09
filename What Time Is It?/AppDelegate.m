@@ -153,6 +153,12 @@
         NSURL *url = [NSURL URLWithString:notification.userInfo[@"url"]];
         [self application:application handleOpenURL:url];
 
+    } else if ([identifier isEqualToString:@"Stop"]) {
+        [application cancelLocalNotification:notification];
+    }
+    
+    if (completionHandler) {
+        completionHandler();
     }
 }
 
