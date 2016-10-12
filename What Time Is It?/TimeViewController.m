@@ -159,7 +159,7 @@
     NSDate *date = [NSDate date];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate:date];
-    components.minute += 1;
+    components.day += 1;
     date = [calendar dateFromComponents:components];
     
     NSString *body = nil;

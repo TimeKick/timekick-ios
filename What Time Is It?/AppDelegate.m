@@ -52,7 +52,6 @@
     }
      */
     [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
-    [application cancelAllLocalNotifications];
     
     if ([[AppSettings sharedSettings] numberOfLaunches]%5==0 && ![[AppSettings sharedSettings] didLeaveFeedback]) {
         //Once every 5 launches
@@ -80,6 +79,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSLog(@"Scheduled: %@",[application scheduledLocalNotifications]);
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
